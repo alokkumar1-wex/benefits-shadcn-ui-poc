@@ -58,6 +58,18 @@ import { Button, Dialog, useToast } from "@/index"
 - Tailwind is configured in `tailwind.config.js` to resolve utilities like `bg-background`, `text-muted-foreground`, and `border` from the token variables, so utilities stay in sync across themes.
 - When adding new styling primitives, introduce a semantic token first (in `tokens.css`), set values per theme (in `themes.css`), and only then expose utilities/components that consume it.
 
+## Storybook Do / Don’t
+
+**Do**
+- Run `npm run storybook` for component validation, onboarding, and visual QA.
+- Import components and hooks exclusively from `@/index` inside stories; use provided `*Props` types for composition.
+- Document accessibility tips in the story description so downstream teams inherit best practices.
+
+**Don’t**
+- Deep import from internal directories (`@/components/ui/*`, `@/hooks/*`) within stories or external apps.
+- Override tokens with ad-hoc colors or spacing inside stories—use variants and props instead.
+- Ship stories that diverge from the governed API surface (no experimental props without maintainers’ approval).
+
 ## Adding a New Component
 
 1. Use the shadcn CLI so the registry stays the source of truth:

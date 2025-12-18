@@ -41,6 +41,12 @@ src/
 
 - To guarantee API stability, every UI primitive exports an explicit `*Props` type (e.g., `ButtonProps`, `DialogContentProps`) that is re-exported from `src/index.ts`. Downstream consumers should rely on these types when composing or extending primitives.
 
+## 4. Storybook Governance
+
+- Storybook (Vite builder) lives under `.storybook/` and can be launched via `npm run storybook`. It auto-loads Tailwind tokens so the gallery reflects production styling.
+- Stories reside in `src/stories`. Each story imports components exclusively through `@/index`, demonstrates supported variants/states, and documents accessibility guardrails in the Docs panel.
+- ESLint restrictions (no deep imports) apply to stories as well, ensuring the gallery remains a trustworthy example for consuming teams.
+
 ## 4. Tailwind Configuration
 
 - `darkMode: ['class']` keeps dark theme opt-in via the `dark` class.
