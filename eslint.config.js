@@ -19,5 +19,36 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: [
+                '@/components/*',
+                '@/components/**/*',
+                '@/hooks/*',
+                '@/hooks/**/*',
+                '@/lib/*',
+                '@/lib/**/*',
+              ],
+              message: 'Import from the design system public API instead of internal paths.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: [
+      'src/components/**/*.{ts,tsx}',
+      'src/hooks/**/*.{ts,tsx}',
+      'src/lib/**/*.{ts,tsx}',
+      'src/index.ts',
+    ],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
   },
 ])

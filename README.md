@@ -37,6 +37,18 @@ Import components from the root entry point:
 import { Button, Dialog, useToast } from "@/index"
 ```
 
+## Public API & Import Rules
+
+- `src/index.ts` is the single, stable export surface for the design system. Every module team should import exclusively from this file (or from the published package root) to guarantee predictable upgrade paths.
+- Our ESLint configuration blocks deep imports such as `@/components/ui/*`, `@/hooks/*`, or `@/lib/*` outside of the design system implementation. Violations fail CI with a clear error message: “Import from the design system public API instead of internal paths.”
+- **Allowed**:
+  - `import { Button } from "@/index"`
+  - `import { Button } from "benefits-bsharp-ui"`
+- **Forbidden**:
+  - `import { Button } from "@/components/ui/button"`
+  - `import { useToast } from "@/hooks/use-toast"`
+- When a new primitive is added, re-export it from `src/index.ts` and update consuming apps to reference only the public API.
+
 ## Design Tokens & Theming
 
 - CSS custom properties live in `src/styles/globals.css` (colors, spacing scale, typography, radii, component metrics).
