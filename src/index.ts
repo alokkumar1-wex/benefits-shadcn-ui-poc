@@ -5,7 +5,7 @@ export { cn } from "@/lib/utils"
 export { useToast, toast } from "@/hooks/use-toast"
 
 // Components
-export { Button, buttonVariants } from "@/components/ui/button"
+export { Button, buttonVariants } from "@/enhanced/button"
 export { Checkbox } from "@/components/ui/checkbox"
 export {
   Dialog,
@@ -83,7 +83,7 @@ export {
 } from "@/components/ui/tooltip"
 
 // Types
-export type { ButtonProps } from "@/components/ui/button"
+export type { ButtonProps } from "@/enhanced/button"
 export type { CheckboxProps } from "@/components/ui/checkbox"
 export type {
   DialogProps,
