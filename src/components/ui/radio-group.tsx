@@ -18,6 +18,9 @@ const RadioGroup = React.forwardRef<
     />
   )
 })
+// Keyboard: arrow keys follow the Radix roving-focus model while Space selects the current radio option.
+// Screen reader: exposes role="radiogroup" with proper aria-checked state propagation for each item.
+// A11y considerations: provide an accessible group label via aria-label or aria-labelledby for context.
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
 const RadioGroupItem = React.forwardRef<
@@ -39,6 +42,9 @@ const RadioGroupItem = React.forwardRef<
     </RadioGroupPrimitive.Item>
   )
 })
+// Keyboard: Space toggles the active radio while disabled states remain focusable but inert.
+// Screen reader: leverages role="radio" semantics so announceable labels must be adjacent or referenced.
+// A11y considerations: ensure radio options are grouped visually and semantically for easy comprehension.
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
 export { RadioGroup, RadioGroupItem }

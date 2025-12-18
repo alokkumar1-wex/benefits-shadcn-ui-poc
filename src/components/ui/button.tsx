@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -34,6 +35,9 @@ const buttonVariants = cva(
   }
 )
 
+// Keyboard: retains native button activation (Space/Enter) and promotes a visible ring via token-based focus classes.
+// Screen reader: forwards aria-* props and content so assistive tech announces the intended label and state.
+// A11y considerations: ensure `asChild` receives an element that handles role="button" semantics and focus management.
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {

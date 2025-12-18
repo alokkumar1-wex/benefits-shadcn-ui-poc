@@ -23,6 +23,9 @@ const Checkbox = React.forwardRef<
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))
+// Keyboard: space toggles the control when focused and the Radix root handles roving focus in grouped checkboxes.
+// Screen reader: announces checked state through the underlying role="checkbox" semantics and forwarded aria props.
+// A11y considerations: pair with an explicit <label> or aria-labelledby to avoid unlabeled focusable controls.
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
 export { Checkbox }

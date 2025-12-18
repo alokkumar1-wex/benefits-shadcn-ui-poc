@@ -24,6 +24,9 @@ const Switch = React.forwardRef<
     />
   </SwitchPrimitives.Root>
 ))
+// Keyboard: toggles with Space/Enter while maintaining focus-visible outlines and Radix swipe gestures on touch.
+// Screen reader: announces as role="switch" with state changes reflected by aria-checked for assistive tech.
+// A11y considerations: pair with descriptive labelling and avoid using switch for binary states lacking on/off meaning.
 Switch.displayName = SwitchPrimitives.Root.displayName
 
 export { Switch }

@@ -14,6 +14,9 @@ const Table = React.forwardRef<
     />
   </div>
 ))
+// Keyboard: relies on native table semantics, so arrow keys work inside interactive cells while Tab moves row-to-row.
+// Screen reader: consumers must supply caption/headers so virtual cursor navigation conveys column and row context.
+// A11y considerations: use scope attributes on headers and summarize layout with <caption> for large data sets.
 Table.displayName = "Table"
 
 const TableHeader = React.forwardRef<

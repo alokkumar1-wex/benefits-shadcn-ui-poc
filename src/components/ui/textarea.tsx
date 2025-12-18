@@ -17,6 +17,9 @@ const Textarea = React.forwardRef<
     />
   )
 })
+// Keyboard: supports multiline editing with native shortcuts (Enter for newline, Tab focus traversal preserved).
+// Screen reader: relies on linked <label> or aria-describedby text to convey purpose and hints.
+// A11y considerations: surface validation with aria-invalid/aria-errormessage when providing custom feedback.
 Textarea.displayName = "Textarea"
 
 export { Textarea }

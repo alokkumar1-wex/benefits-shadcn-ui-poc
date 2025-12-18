@@ -28,8 +28,8 @@ const spacingScale = {
   7: 'calc(var(--space-lg) + var(--space-2xs))',
   8: 'var(--space-xl)',
   9: 'calc(var(--space-xl) + var(--space-2xs))',
-  10: 'calc(var(--space-xl) + var(--space-sm))',
-  11: 'calc(var(--space-xl) + var(--space-sm) + var(--space-3xs))',
+  10: 'calc(var(--space-xl) + var(--space-sm) - var(--space-2xs))',
+  11: 'calc(var(--space-xl) + var(--space-sm))',
   12: 'var(--space-2xl)',
 }
 

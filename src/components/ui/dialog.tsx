@@ -29,6 +29,9 @@ const DialogOverlay = React.forwardRef<
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
+// Keyboard: Escape closes the dialog and focus is trapped within the content until dismissal per Radix primitives.
+// Screen reader: announces with aria-modal and aria-labelledby/aria-describedby wired to Title/Description.
+// A11y considerations: ensure the trigger leads focus back to a meaningful location after close when customizing.
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
