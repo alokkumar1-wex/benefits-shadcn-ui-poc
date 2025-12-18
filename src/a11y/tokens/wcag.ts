@@ -8,7 +8,7 @@ export const WCAG_TOKENS = {
      * WCAG 2.2 AA — Success Criterion 2.5.8 Target Size (Minimum)
      * mandates a 24px minimum for interactive controls.
      */
-    minimum: 50,
+    minimum: 24,
   },
 } as const
 
