@@ -5,11 +5,19 @@ import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+export type ToastProviderProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Provider
+>
+
 const ToastProvider = ToastPrimitives.Provider
+
+export type ToastViewportProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Viewport
+>
 
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+  ToastViewportProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Viewport
     ref={ref}
@@ -41,10 +49,13 @@ const toastVariants = cva(
 // Keyboard: toast remains dismissible via Escape and supports swipe gestures while preserving focus on the trigger.
 // Screen reader: role="status" announcements are handled by Radix to read new toasts without stealing focus.
 // A11y considerations: keep toast content concise and mirror critical messaging elsewhere for timeouts-sensitive users.
-const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Root>,
+export type ToastComponentProps =
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root> &
     VariantProps<typeof toastVariants>
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  ToastComponentProps
 >(({ className, variant, ...props }, ref) => {
   return (
     <ToastPrimitives.Root
@@ -56,9 +67,13 @@ const Toast = React.forwardRef<
 })
 Toast.displayName = ToastPrimitives.Root.displayName
 
+export type ToastActionProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Action
+>
+
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
+  ToastActionProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
@@ -71,9 +86,13 @@ const ToastAction = React.forwardRef<
 ))
 ToastAction.displayName = ToastPrimitives.Action.displayName
 
+export type ToastCloseProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Close
+>
+
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+  ToastCloseProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Close
     ref={ref}
@@ -89,9 +108,13 @@ const ToastClose = React.forwardRef<
 ))
 ToastClose.displayName = ToastPrimitives.Close.displayName
 
+export type ToastTitleProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Title
+>
+
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+  ToastTitleProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Title
     ref={ref}
@@ -101,9 +124,13 @@ const ToastTitle = React.forwardRef<
 ))
 ToastTitle.displayName = ToastPrimitives.Title.displayName
 
+export type ToastDescriptionProps = React.ComponentPropsWithoutRef<
+  typeof ToastPrimitives.Description
+>
+
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>
+  ToastDescriptionProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitives.Description
     ref={ref}

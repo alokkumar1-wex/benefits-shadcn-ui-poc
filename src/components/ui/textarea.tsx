@@ -2,10 +2,10 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-const Textarea = React.forwardRef<
-  HTMLTextAreaElement,
-  React.ComponentProps<"textarea">
->(({ className, ...props }, ref) => {
+export type TextareaProps = React.ComponentProps<"textarea">
+
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+  ({ className, ...props }, ref) => {
   return (
     <textarea
       className={cn(
@@ -16,7 +16,8 @@ const Textarea = React.forwardRef<
       {...props}
     />
   )
-})
+  }
+)
 // Keyboard: supports multiline editing with native shortcuts (Enter for newline, Tab focus traversal preserved).
 // Screen reader: relies on linked <label> or aria-describedby text to convey purpose and hints.
 // A11y considerations: surface validation with aria-invalid/aria-errormessage when providing custom feedback.

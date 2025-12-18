@@ -1,4 +1,5 @@
 import { useToast } from "@/hooks/use-toast"
+import type { ToastProviderProps } from "@/components/ui/toast"
 import {
   Toast,
   ToastClose,
@@ -8,11 +9,13 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
-export function Toaster() {
+export type ToasterProps = Partial<ToastProviderProps>
+
+export function Toaster(providerProps: ToasterProps = {}) {
   const { toasts } = useToast()
 
   return (
-    <ToastProvider>
+    <ToastProvider {...providerProps}>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
           <Toast key={id} {...props}>

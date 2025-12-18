@@ -39,6 +39,8 @@ src/
 
 **Result**: No component references raw hex codes or arbitrary spacing—everything is token-driven and theme-ready.
 
+- To guarantee API stability, every UI primitive exports an explicit `*Props` type (e.g., `ButtonProps`, `DialogContentProps`) that is re-exported from `src/index.ts`. Downstream consumers should rely on these types when composing or extending primitives.
+
 ## 4. Tailwind Configuration
 
 - `darkMode: ['class']` keeps dark theme opt-in via the `dark` class.

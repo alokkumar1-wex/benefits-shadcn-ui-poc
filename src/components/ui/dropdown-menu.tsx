@@ -4,6 +4,25 @@ import { Check, ChevronRight, Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+export type DropdownMenuProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Root
+>
+export type DropdownMenuTriggerProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Trigger
+>
+export type DropdownMenuGroupProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Group
+>
+export type DropdownMenuPortalProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Portal
+>
+export type DropdownMenuSubProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.Sub
+>
+export type DropdownMenuRadioGroupProps = React.ComponentPropsWithoutRef<
+  typeof DropdownMenuPrimitive.RadioGroup
+>
+
 const DropdownMenu = DropdownMenuPrimitive.Root
 
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
@@ -19,17 +38,32 @@ const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 // Keyboard: supports Enter/Space to open, arrows to navigate, and typeahead search through Radix menu behavior.
 // Screen reader: surfaces role="menu" with menuitem/menuitemcheckbox semantics so assistive tech announces state.
 // A11y considerations: ensure triggers have discernible text and avoid nesting focusable content inside menu items.
+type DropdownMenuSpacing = "default" | "inset"
+
+type DeprecatedInsetProp = {
+  /**
+   * @deprecated Use `spacing="inset"` instead. This boolean will be removed in a future major release.
+   */
+  inset?: boolean
+}
+
+export type DropdownMenuSubTriggerProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
+    spacing?: DropdownMenuSpacing
+  } & DeprecatedInsetProp
+
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-    inset?: boolean
-  }
->(({ className, inset, children, ...props }, ref) => (
+  DropdownMenuSubTriggerProps
+>(({ className, inset, spacing, children, ...props }, ref) => {
+  const spacingValue: DropdownMenuSpacing =
+    spacing ?? (inset ? "inset" : "default")
+  return (
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
       "flex cursor-default select-none items-center gap-xs rounded-sm px-xs py-1.5 text-sm outline-none focus-visible:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-icon-sm [&_svg]:shrink-0",
-      inset && "pl-xl",
+      spacingValue === "inset" && "pl-xl",
       className
     )}
     {...props}
@@ -37,13 +71,17 @@ const DropdownMenuSubTrigger = React.forwardRef<
     {children}
     <ChevronRight className="ml-auto" />
   </DropdownMenuPrimitive.SubTrigger>
-))
+  )
+})
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName
 
+export type DropdownMenuSubContentProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent>
+  DropdownMenuSubContentProps
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.SubContent
     ref={ref}
@@ -57,9 +95,12 @@ const DropdownMenuSubContent = React.forwardRef<
 DropdownMenuSubContent.displayName =
   DropdownMenuPrimitive.SubContent.displayName
 
+export type DropdownMenuContentProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+  DropdownMenuContentProps
 >(({ className, sideOffset = 4, ...props }, ref) => (
   <DropdownMenuPrimitive.Portal>
     <DropdownMenuPrimitive.Content
@@ -76,27 +117,37 @@ const DropdownMenuContent = React.forwardRef<
 ))
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
 
+export type DropdownMenuItemProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
+    spacing?: DropdownMenuSpacing
+  } & DeprecatedInsetProp
+
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-    inset?: boolean
-  }
->(({ className, inset, ...props }, ref) => (
+  DropdownMenuItemProps
+>(({ className, inset, spacing, ...props }, ref) => {
+  const spacingValue: DropdownMenuSpacing =
+    spacing ?? (inset ? "inset" : "default")
+  return (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center gap-xs rounded-sm px-xs py-1.5 text-sm outline-none transition-colors focus-visible:bg-accent focus-visible:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-icon-sm [&>svg]:shrink-0",
-      inset && "pl-xl",
+      spacingValue === "inset" && "pl-xl",
       className
     )}
     {...props}
   />
-))
+  )
+})
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
+
+export type DropdownMenuCheckboxItemProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
 
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.CheckboxItem>
+  DropdownMenuCheckboxItemProps
 >(({ className, children, checked, ...props }, ref) => (
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
@@ -118,9 +169,12 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 DropdownMenuCheckboxItem.displayName =
   DropdownMenuPrimitive.CheckboxItem.displayName
 
+export type DropdownMenuRadioItemProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+
 const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.RadioItem>
+  DropdownMenuRadioItemProps
 >(({ className, children, ...props }, ref) => (
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
@@ -140,27 +194,37 @@ const DropdownMenuRadioItem = React.forwardRef<
 ))
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
 
+export type DropdownMenuLabelProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
+    spacing?: DropdownMenuSpacing
+  } & DeprecatedInsetProp
+
 const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-    inset?: boolean
-  }
->(({ className, inset, ...props }, ref) => (
+  DropdownMenuLabelProps
+>(({ className, inset, spacing, ...props }, ref) => {
+  const spacingValue: DropdownMenuSpacing =
+    spacing ?? (inset ? "inset" : "default")
+  return (
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
       "px-xs py-1.5 text-sm font-semibold",
-      inset && "pl-xl",
+      spacingValue === "inset" && "pl-xl",
       className
     )}
     {...props}
   />
-))
+  )
+})
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
+
+export type DropdownMenuSeparatorProps =
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 
 const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+  DropdownMenuSeparatorProps
 >(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
@@ -170,10 +234,13 @@ const DropdownMenuSeparator = React.forwardRef<
 ))
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
 
+export type DropdownMenuShortcutProps =
+  React.HTMLAttributes<HTMLSpanElement>
+
 const DropdownMenuShortcut = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: DropdownMenuShortcutProps) => {
   return (
     <span
       className={cn("ml-auto text-xs tracking-widest opacity-60", className)}

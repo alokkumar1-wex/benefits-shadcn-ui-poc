@@ -83,5 +83,78 @@ export {
 } from "@/components/ui/tooltip"
 
 // Types
+export type { ButtonProps } from "@/components/ui/button"
+export type { CheckboxProps } from "@/components/ui/checkbox"
+export type {
+  DialogProps,
+  DialogTriggerProps,
+  DialogPortalProps,
+  DialogOverlayProps,
+  DialogCloseProps,
+  DialogContentProps,
+  DialogHeaderProps,
+  DialogFooterProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+} from "@/components/ui/dialog"
+export type {
+  DropdownMenuProps,
+  DropdownMenuTriggerProps,
+  DropdownMenuContentProps,
+  DropdownMenuItemProps,
+  DropdownMenuCheckboxItemProps,
+  DropdownMenuRadioItemProps,
+  DropdownMenuLabelProps,
+  DropdownMenuSeparatorProps,
+  DropdownMenuShortcutProps,
+  DropdownMenuGroupProps,
+  DropdownMenuPortalProps,
+  DropdownMenuSubProps,
+  DropdownMenuSubContentProps,
+  DropdownMenuSubTriggerProps,
+  DropdownMenuRadioGroupProps,
+} from "@/components/ui/dropdown-menu"
+export type { InputProps } from "@/components/ui/input"
+export type { RadioGroupProps, RadioGroupItemProps } from "@/components/ui/radio-group"
+export type {
+  SelectProps,
+  SelectGroupProps,
+  SelectValueProps,
+  SelectTriggerProps,
+  SelectContentProps,
+  SelectLabelProps,
+  SelectItemProps,
+  SelectSeparatorProps,
+  SelectScrollUpButtonProps,
+  SelectScrollDownButtonProps,
+} from "@/components/ui/select"
+export type { SwitchProps } from "@/components/ui/switch"
+export type {
+  TableProps,
+  TableHeaderProps,
+  TableBodyProps,
+  TableFooterProps,
+  TableHeadProps,
+  TableRowProps,
+  TableCellProps,
+  TableCaptionProps,
+} from "@/components/ui/table"
+export type { TextareaProps } from "@/components/ui/textarea"
 export type { ToastProps, ToastActionElement } from "@/components/ui/toast"
+export type {
+  ToastProviderProps,
+  ToastViewportProps,
+  ToastComponentProps,
+  ToastActionProps,
+  ToastCloseProps,
+  ToastTitleProps,
+  ToastDescriptionProps,
+} from "@/components/ui/toast"
+export type { ToasterProps } from "@/components/ui/toaster"
+export type {
+  TooltipProviderProps,
+  TooltipProps,
+  TooltipTriggerProps,
+  TooltipContentProps,
+} from "@/components/ui/tooltip"
 

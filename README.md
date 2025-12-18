@@ -48,6 +48,7 @@ import { Button, Dialog, useToast } from "@/index"
   - `import { Button } from "@/components/ui/button"`
   - `import { useToast } from "@/hooks/use-toast"`
 - When a new primitive is added, re-export it from `src/index.ts` and update consuming apps to reference only the public API.
+- Every component re-exports a stable prop type (`ButtonProps`, `SelectTriggerProps`, etc.) from `@/index`. Use these when extending or composing primitives to preserve type-safety.
 
 ## Design Tokens & Theming
 
@@ -81,7 +82,16 @@ import { Button, Dialog, useToast } from "@/index"
 - Visible focus states on every focusable element (`focus-visible` utilities already wired in).
 - Keyboard parity with native controls (Space/Enter activation, Escape close, arrow key navigation).
 - Screen reader announcements backed by ARIA attributes, `aria-live` regions, or semantic HTML.
+- Development builds automatically load `@axe-core/react` (see `src/main.tsx`) to surface violations in the console; keep the browser console open while building new components.
 - Verify with automated tooling (`@axe-core/react`, Storybook a11y addons) before submitting changes.
+
+### Accessibility Checklist
+
+- Every interactive element is operable with only the keyboard (Tab/Shift+Tab + activation keys).
+- Focus is always visible and meets contrast guidelines.
+- Labels (`label`/`aria-labelledby`/`aria-label`) describe every control; no redundant ARIA where Radix already applies semantics.
+- Components expose semantic markup (roles, states) and avoid hijacking native behaviors.
+- Validation and status messaging re-uses the toast/alert primitives so announcements reach assistive tech.
 
 ## Module Team Guidelines
 

@@ -3,6 +3,15 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
+export type TooltipProviderProps =
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
+export type TooltipProps = React.ComponentPropsWithoutRef<
+  typeof TooltipPrimitive.Root
+>
+export type TooltipTriggerProps = React.ComponentPropsWithoutRef<
+  typeof TooltipPrimitive.Trigger
+>
+
 const TooltipProvider = TooltipPrimitive.Provider
 
 const Tooltip = TooltipPrimitive.Root
@@ -12,9 +21,13 @@ const TooltipTrigger = TooltipPrimitive.Trigger
 // Keyboard: trigger elements surface the tooltip on focus and dismiss on Escape thanks to Radix defaults.
 // Screen reader: content remains hidden from SRs until the trigger is focused, then announced via aria-describedby.
 // A11y considerations: keep tooltip text supplementary—never replace essential information or interactive labels.
+export type TooltipContentProps = React.ComponentPropsWithoutRef<
+  typeof TooltipPrimitive.Content
+>
+
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
+  TooltipContentProps
 >(({ className, sideOffset = 4, ...props }, ref) => (
   <TooltipPrimitive.Portal>
     <TooltipPrimitive.Content
