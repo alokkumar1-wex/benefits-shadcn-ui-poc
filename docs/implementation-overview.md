@@ -27,10 +27,12 @@ src/
 
 ## 3. Design Tokens & Theming
 
-**File**: `src/styles/globals.css`
+**Files**:
 
-- Declares light and dark themes via CSS variables (`--background`, `--primary`, etc.).
-- Covers colors, radii, spacing scales, typography, and component metrics (control heights, icon sizes, switch dimensions, textarea minimum height).
+- `src/styles/tokens.css` — Defines the semantic contract (`--color-bg`, `--color-text`, spacing scale, radii, typography, component metrics).
+- `src/styles/themes.css` — Provides concrete values for the default (`:root`) and dark (`.dark`) themes by overriding the token variables.
+- `src/styles/globals.css` — Imports tokens and themes, then applies global element resets that reference utilities (`bg-background`, `text-foreground`) backed by those tokens.
+
 - Tailwind consumes these tokens through `tailwind.config.js`, keeping utilities in sync with the design language:
   - `extend.colors` resolves to `hsl(var(--token))`.
   - `spacing`, `borderRadius`, `fontFamily`, `fontWeight`, `letterSpacing`, and custom `size` map directly to the variables.

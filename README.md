@@ -51,10 +51,11 @@ import { Button, Dialog, useToast } from "@/index"
 
 ## Design Tokens & Theming
 
-- CSS custom properties live in `src/styles/globals.css` (colors, spacing scale, typography, radii, component metrics).
-- Tailwind is configured in `tailwind.config.js` to reference those variables, ensuring utility classes map to tokens.
-- Light and dark themes share the same token names; always rely on semantic tokens such as `bg-background` and `text-primary-foreground`.
-- If you need a new token, add it to `globals.css` and bridge it through Tailwind (do **not** introduce ad-hoc hex values).
+- Semantic tokens are declared in `src/styles/tokens.css` (`--color-bg`, `--space-sm`, `--radius-md`, typography scales, etc.).
+- Theme files (`src/styles/themes.css`) assign token values for the light `:root` contract and the `.dark` override—components never reference themes directly.
+- `src/styles/globals.css` imports tokens and themes, then applies baseline element styles (`bg-background`, `text-foreground`, font stacks).
+- Tailwind is configured in `tailwind.config.js` to resolve utilities like `bg-background`, `text-muted-foreground`, and `border` from the token variables, so utilities stay in sync across themes.
+- When adding new styling primitives, introduce a semantic token first (in `tokens.css`), set values per theme (in `themes.css`), and only then expose utilities/components that consume it.
 
 ## Adding a New Component
 

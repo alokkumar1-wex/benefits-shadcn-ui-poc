@@ -1,0 +1,70 @@
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --color-bg: 0 0% 100%;
+    --color-bg-muted: 210 40% 96.1%;
+    --color-surface: var(--color-bg);
+    --color-surface-elevated: 0 0% 100%;
+    --color-text: 222.2 47.4% 11.2%;
+    --color-text-subtle: 215.4 16.3% 46.9%;
+    --color-border: 214.3 31.8% 91.4%;
+    --color-border-strong: 214.3 31.8% 80%;
+    --color-input: 214.3 31.8% 91.4%;
+    --color-ring: 222.2 84% 4.9%;
+    --color-primary: 222.2 47.4% 11.2%;
+    --color-primary-contrast: 210 40% 98%;
+    --color-secondary: 210 40% 96.1%;
+    --color-secondary-contrast: 222.2 47.4% 11.2%;
+    --color-accent: 210 40% 96.1%;
+    --color-accent-contrast: 222.2 47.4% 11.2%;
+    --color-danger: 0 84.2% 60.2%;
+    --color-danger-contrast: 0 0% 98%;
+    --color-success: 142.1 76.2% 36.3%;
+    --color-success-contrast: 141 84% 96%;
+    --color-warning: 38 92% 50%;
+    --color-warning-contrast: 222.2 47.4% 11.2%;
+    --color-info: 221 83% 53%;
+    --color-info-contrast: 210 40% 98%;
+    --color-chart-1: 12 76% 61%;
+    --color-chart-2: 173 58% 39%;
+    --color-chart-3: 197 37% 24%;
+    --color-chart-4: 43 74% 66%;
+    --color-chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --color-bg: 224 71% 4%;
+    --color-bg-muted: 217.2 32.6% 17.5%;
+    --color-surface: 224 71% 4%;
+    --color-surface-elevated: 217.2 32.6% 12%;
+    --color-text: 213 31% 91%;
+    --color-text-subtle: 215 20.2% 65.1%;
+    --color-border: 217.2 32.6% 17.5%;
+    --color-border-strong: 217.2 32.6% 30%;
+    --color-input: 217.2 32.6% 17.5%;
+    --color-ring: 212.7 26.8% 83.9%;
+    --color-primary: 210 40% 98%;
+    --color-primary-contrast: 222.2 47.4% 11.2%;
+    --color-secondary: 217.2 32.6% 17.5%;
+    --color-secondary-contrast: 210 40% 98%;
+    --color-accent: 217.2 32.6% 17.5%;
+    --color-accent-contrast: 210 40% 98%;
+    --color-danger: 0 62.8% 30.6%;
+    --color-danger-contrast: 0 0% 98%;
+    --color-success: 142 70% 45%;
+    --color-success-contrast: 144 38% 97%;
+    --color-warning: 40 85% 60%;
+    --color-warning-contrast: 224 71% 4%;
+    --color-info: 216 87% 65%;
+    --color-info-contrast: 224 71% 4%;
+    --color-chart-1: 220 70% 50%;
+    --color-chart-2: 160 60% 45%;
+    --color-chart-3: 30 80% 55%;
+    --color-chart-4: 280 65% 60%;
+    --color-chart-5: 340 75% 55%;
+  }
+}
+

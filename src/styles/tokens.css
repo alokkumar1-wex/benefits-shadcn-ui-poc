@@ -1,0 +1,110 @@
+@layer base {
+  :root {
+    /* Color tokens */
+    --color-bg: 0 0% 100%;
+    --color-bg-muted: 210 40% 96.1%;
+    --color-surface: var(--color-bg);
+    --color-surface-elevated: var(--color-bg);
+    --color-text: 222.2 47.4% 11.2%;
+    --color-text-subtle: 215.4 16.3% 46.9%;
+    --color-border: 214.3 31.8% 91.4%;
+    --color-border-strong: 214.3 31.8% 80%;
+    --color-input: var(--color-border);
+    --color-ring: 222.2 84% 4.9%;
+    --color-primary: 222.2 47.4% 11.2%;
+    --color-primary-contrast: 210 40% 98%;
+    --color-secondary: 210 40% 96.1%;
+    --color-secondary-contrast: 222.2 47.4% 11.2%;
+    --color-accent: 210 40% 96.1%;
+    --color-accent-contrast: 222.2 47.4% 11.2%;
+    --color-danger: 0 84.2% 60.2%;
+    --color-danger-contrast: 0 0% 98%;
+    --color-success: 142.1 76.2% 36.3%;
+    --color-success-contrast: 141 84% 96%;
+    --color-warning: 38 92% 50%;
+    --color-warning-contrast: 222.2 47.4% 11.2%;
+    --color-info: 221 83% 53%;
+    --color-info-contrast: 210 40% 98%;
+    --color-chart-1: 12 76% 61%;
+    --color-chart-2: 173 58% 39%;
+    --color-chart-3: 197 37% 24%;
+    --color-chart-4: 43 74% 66%;
+    --color-chart-5: 27 87% 67%;
+
+    /* Spacing tokens */
+    --space-3xs: 0.125rem;
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 5rem;
+    --space-5xl: 6rem;
+    --space-6xl: 8rem;
+
+    /* Radius tokens */
+    --radius-none: 0rem;
+    --radius-xs: 0.125rem;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-pill: 999px;
+    --radius-full: 9999px;
+    --radius: var(--radius-md);
+
+    /* Typography tokens */
+    --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+
+    --line-height-xs: 1.125rem;
+    --line-height-sm: 1.25rem;
+    --line-height-md: 1.5rem;
+    --line-height-lg: 1.75rem;
+    --line-height-xl: 1.875rem;
+    --line-height-2xl: 2.25rem;
+    --line-height-3xl: 2.5rem;
+    --line-height-4xl: 2.75rem;
+    --line-height-5xl: 3.25rem;
+
+    --letter-spacing-tight: -0.015em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.02em;
+
+    /* Component metrics */
+    --control-height-sm: 2rem;
+    --control-height-md: 2.25rem;
+    --control-height-lg: 2.5rem;
+    --control-padding-sm: var(--space-sm);
+    --control-padding-md: var(--space-md);
+    --control-padding-lg: var(--space-lg);
+    --icon-size-2xs: 0.5rem;
+    --icon-size-xs: 0.875rem;
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.25rem;
+    --icon-size-lg: 1.5rem;
+    --textarea-min-height: 3.75rem;
+    --switch-height: 1.25rem;
+    --switch-width: 2.25rem;
+  }
+}
+
